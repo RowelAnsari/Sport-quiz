@@ -22,7 +22,7 @@ class QuizStarter:
     self.heading_label=Label(window, text = "Sports quiz", font =( "Tw Cen MT","18","bold"),bg=background_color)
     self.heading_label.place(x=100,y=100)
 
-    self.var1=IntVar()
+    self.con1=IntVar()
 
     self.user_label=Label(window, text="Enter name: ", font=( "Tw Cen MT","18","bold"),bg=background_color)
     self.user_label.place(x=468,y=100)
@@ -67,18 +67,18 @@ class Quiz:
     self.question_label=Label(window, text = self.qa_dictionary[qnum][0], font =( "Tw Cen MT","18","bold"))
     self.question_label.grid(row= 0, padx=10, pady=10)  
 
-    self.var1=IntVar()
+    self.con1=IntVar()
 
-    self.rb1 = Radiobutton(window, text = self.qa_dictionary[qnum][1], font=("Helvetica", "12"), bg=background_color, value=1, variable=self.var1, pady=10)
+    self.rb1 = Radiobutton(window, text = self.qa_dictionary[qnum][1], font=("Helvetica", "12"), bg=background_color, value=1, variable=self.con1, pady=10)
     self.rb1.grid(row=1, sticky=W)
 
-    self.rb2 = Radiobutton(window, text = self.qa_dictionary[qnum][2], font=("Helvetica", "12"), bg=background_color, value=2, variable=self.var1, pady=10)
+    self.rb2 = Radiobutton(window, text = self.qa_dictionary[qnum][2], font=("Helvetica", "12"), bg=background_color, value=2, variable=self.con1, pady=10)
     self.rb2.grid(row=2, sticky=W)
 
-    self.rb3 = Radiobutton(window, text = self.qa_dictionary[qnum][3], font=("Helvetica", "12"), bg=background_color, value=3, variable=self.var1, pady=10)
+    self.rb3 = Radiobutton(window, text = self.qa_dictionary[qnum][3], font=("Helvetica", "12"), bg=background_color, value=3, variable=self.con1, pady=10)
     self.rb3.grid(row=3, sticky=W)
 
-    self.rb4 = Radiobutton(window, text = self.qa_dictionary[qnum][4], font=("Helvetica", "12"), bg=background_color, value=4, variable=self.var1, pady=10)
+    self.rb4 = Radiobutton(window, text = self.qa_dictionary[qnum][4], font=("Helvetica", "12"), bg=background_color, value=4, variable=self.con1, pady=10)
     self.rb4.grid(row=4, sticky=W)
 
     self.confirm_button = Button(window, text="Confrim",bg="white",command=self.test_progress)
@@ -93,7 +93,7 @@ class Quiz:
      
   def questions_setup(self):
      randomiser()
-     self.var1.set(0)
+     self.con1.set(0)
      self.question_label.config(text=self.qa_dictionary[qnum][0])
      self.rb1.config(text=self.qa_dictionary[qnum][1])
      self.rb2.config(text=self.qa_dictionary[qnum][2])
@@ -103,7 +103,7 @@ class Quiz:
   def test_progress(self):
       global score 
       scr_label=self.score_label 
-      choice=self.var1.get()
+      choice=self.con1.get()
       if len(asked)>2:
         if choice == self.qa_dictionary[qnum][6]:
           score +=1 
@@ -120,7 +120,7 @@ class Quiz:
       else:
             if choice==0: 
               self.confirm_button.config(text="Try Again, you didn't select an option then submit again" )
-              choice=self.var1.get() 
+              choice=self.con1.get() 
             else:
               if choice == self.qa_dictionary[qnum][6]: 
                 score+=1
@@ -161,12 +161,24 @@ class End:
     self.end_box.destroy()
     window.withdraw()
   
-  def end_screen(self):
-    window.withdraw()
+
+
+class leaderBoard:
+    def _innit_(self, parent):
+
+     parent.geometry("500x600")
+     self.bg_img = image
+  
+  
+
+
+
+
+  
     name=names[0]
     file=open("leaderBoard.txt","a")
     
-    if name== "admin_reset":
+    if name== "rowel_erase":
       file=open("leaderboard.txt","w")
     else:
       file.write(str(score))
