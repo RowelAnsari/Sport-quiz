@@ -167,7 +167,14 @@ class leaderBoard:
     def _innit_(self, parent):
 
      parent.geometry("500x600")
-     self.bg_img = image
+     self.bg_img = image.open("blue.png")
+     self.bg_img = self.bg_img.resize(("500x600"),image.ANTIALIAS)
+     image = imageTk.PhotoImage(self.bg_img)
+     image_label.config(image=image)
+     image_label.image = image
+
+     self.name.label=Label(parent,text="name",height=3,width=15)
+      
   
   
 
