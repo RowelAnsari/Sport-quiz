@@ -151,7 +151,10 @@ class Quiz:
     
     self.score_label  = Label(window, text = 'score')
     self.score_label.place(x=390,y=240)  
-    
+
+    self.leave=Button(window,text="Leave",font=("Helvetica","13","bold"),bg="lightblue",command=self.end_screen)
+    self.leave.place(x=50,y=235)
+
    
   def questions_setup(self):
      randomiser()
@@ -171,13 +174,13 @@ class Quiz:
           score +=1 
           scr_label.configure(text=score) 
           self.confirm_button.config(text="Confirm")
-          
+          self.end_screen()
           
         else:
           score+=0 
           scr_label.configure(text="The correct answer was: "+ self.qa_dictionary[qnum][5]) 
           self.confirm_button.config(text="confirm")
-          self.end_screen()
+         
       
       else:
           if choice==0: 
@@ -200,6 +203,10 @@ class Quiz:
     window.withdraw()
     end_object=End()
 
+
+
+
+
 class End:
   def _innit_(self):
     background="OldLace"
@@ -209,13 +216,13 @@ class End:
     self.end_frame = Frame (self.end_box,width=1000,height=1000,bg=background)
     self.end_frame.grid(row=1)
 
-    end.heading = Label(self.end_frame,text='Well Done',font=('Tw Cen Mt',22,'bold'),bg=background,pady=15)
+    end.heading = Label(self.end_frame,text='Well Done',font=('Tw Cen Mt',22,'bold'),bg=background)
     end.heading.grid(row=0)
 
     exit.__code__button=Button (self.end_frame,text='Exit',width=10,bg="indianRed1",font=('Tw Cen Mt',12,'bold'),command=self.close_end)
-    exit_button.grid(row=4,pady=20)
+    exit_button.grid(row=4)
 
-    self.listLabel = Label(self.end_frame,text="1st Place Available",font=('Tw Cen MT'),width=40,bg=backround,padx=10,pady=10)
+    self.listLabel = Label(self.end_frame,text="1st Place Available",font=('Tw Cen MT'),width=40,bg=backround)
     self.listLabel.grid(column=0,row=2)
   
   
