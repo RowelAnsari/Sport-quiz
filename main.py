@@ -8,7 +8,7 @@ score=0
 
 def randomiser():
     global qnum
-    qnum = random.randint(1,3)
+    qnum = random.randint(1,10)
     if qnum not in asked:
       asked.append(qnum)
     elif qnum in asked:
