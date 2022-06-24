@@ -163,51 +163,7 @@ class End:
   
 
 
-class leaderBoard:
-    def _innit_(self, parent):
 
-     parent.geometry("500x600")
-     self.bg_img = image.open("blue.png")
-     self.bg_img = self.bg_img.resize(("500x600"),image.ANTIALIAS)
-     image = imageTk.PhotoImage(self.bg_img)
-     image_label.config(image=image)
-     image_label.image = image
-
-     self.name.label=Label(parent,text="name",height=3,width=15)
-     self.name.label.place(x=100,y=100)
-     self.score.label=Label(parent,text="score",height=3,width=15)
-     self.score.label.place(x=100,y=200)
-      
-    def leaderboard_colection(self) 
-    name=names_list[0]
-    file=open("leaderBoard.txt","a")
-    
-    if name== "rowel_erase":
-      file=open("leaderboard.txt","w")
-    else:
-      file.write(str(score))
-      file.write(" - ")
-      file.write(name+"\n")
-      file.close
-  
-    inputFile = open("leaderBoard.txt","r")
-    lineList = inputFile.readlines()
-    lineList.sort()
-    top=[]
-    top5=(lineList[-5:])
-    for line in top5:
-      point=line.split(" - ")
-      top.append((int(point[0]),point[1]))
-    file.close()
-    top.sort()
-    top.reverse()
-    return_string = ""
-    for i in range(len(top)):
-      return_string+="{} - {}\n".format(top[i][0],top[i][1])
-    print(return_string)
-  
-    end_object=End()
-    end_object.listLabel.config(text=return_string)
     
 if __name__== "__main__":
     window = Tk()
