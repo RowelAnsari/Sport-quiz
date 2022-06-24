@@ -108,7 +108,7 @@ class Quiz:
       global score 
       scr_label=self.score_label 
       choice=self.con1.get()
-      if len(asked)>2:
+      if len(asked)>9:
         if choice == self.qa_dictionary[qnum][6]:
           score +=1 
           scr_label.configure(text=score) 
