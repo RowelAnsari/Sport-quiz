@@ -174,15 +174,12 @@ class leaderBoard:
      image_label.image = image
 
      self.name.label=Label(parent,text="name",height=3,width=15)
+     self.name.label.place(x=100,y=100)
+     self.score.label=Label(parent,text="score",height=3,width=15)
+     self.score.label.place(x=100,y=200)
       
-  
-  
-
-
-
-
-  
-    name=names[0]
+    def leaderboard_colection(self) 
+    name=names_list[0]
     file=open("leaderBoard.txt","a")
     
     if name== "rowel_erase":
