@@ -50,16 +50,76 @@ class Quiz:
     background_color="lightgrey"
     
     self.qa_dictionary = {
-    1: ["Who won the 2002 FIFA World cup?", 'Brazil', 'America','UK', 'Austrailia' ,'Brazil',1],
-    2: ["Which NBA player has won the most championships?",'Michael Jordan','Bill Russel','Lebron James', 'Wilt Chamberlain','Bill Russel',2],
-    3: ["Which position in soccer is allowed to touch the ball?", 'Forward','Midfielder', 'Defender','Goalkeeper','Goalkeeper',4],
-    4:["How many gold medals has Usain Bolt won?",'6','8','9','7','8',2,], 
-    5:["What is the only sport to be played on the moon?",'Basketball','Soccer','Golf','Cricket','Golf',3],
-    6:["The Olympics are held every how many years?",'2','3','4','5',3],
-    7:["What is the record for red cards given in a single soccer game?",'36','18','29','11','36',1],
-    8:["How many players are on the court at one time during a standard volleyball game?",'12','14','10','16','12',1],
-    9:["Which of these is not currently an Olympic sport?",'Taekwondo','Cricket','Handball','Judo','Cricket',2],
-    10:["Which of these terms means you knocked down all of the pins in bowling on the first      frame?",'Split','Set','Spare','Strike','Strike',4],
+    1: ["Who won the 2002 FIFA World cup?", 
+        'Brazil', 
+        'America',
+        'UK', 
+        'Austrailia' ,
+        'Brazil',
+        1],
+    2: ["Which NBA player has won the most championships?",
+        'Michael Jordan',
+        'Bill Russel',
+        'Lebron James', 
+        'Wilt Chamberlain',
+        'Bill Russel',
+        2],
+    3: ["Which position in soccer is allowed to touch the ball?", 
+        'Forward',
+        'Midfielder', 
+        'Defender',
+        'Goalkeeper',
+        'Goalkeeper',
+        4],
+    4:["How many gold medals has Usain Bolt won?",
+       '6',
+       '8',
+       '9',
+       '7',
+       '8',
+       2], 
+    5:["What is the only sport to be played on the moon?",
+       'Basketball',
+       'Soccer',
+       'Golf',
+       'Cricket',
+       'Golf',
+       3],
+    6:["The Olympics are held every how many years?",
+       '2',
+       '3',
+       '4',
+       '5',
+       '4',
+       3],
+    7:["What is the record for red cards given in a single soccer game?",
+       '36',
+       '18',
+       '29',
+       '11',
+       '36',
+       1],
+    8:["How many players are on the court at one time during a standard volleyball game?",
+       '12',
+       '14',
+       '10',
+       '16',
+       '12',
+       1],
+    9:["Which of these is not currently an Olympic sport?",
+       'Taekwondo',
+       'Cricket',
+       'Handball',
+       'Judo',
+       'Cricket',
+       2],
+    10:["Which of these terms means you knocked down all of the pins in bowling on the first      frame?",
+        'Split',
+        'Set',
+        'Spare',
+        'Strike',
+        'Strike',
+        4],
     
     }
   
@@ -117,22 +177,22 @@ class Quiz:
           
         else:
           score+=0 
-          scr_label.configure(text="The correct answer was: "+ self.qa_dictionary[qnum][5] ) 
+          scr_label.configure(text="The correct answer was: "+ self.qa_dictionary[qnum][5]) 
           self.confirm_button.config(text="confirm")
           self.end_screen()
       
       else:
-            if choice==0: 
+          if choice==0: 
               self.confirm_button.config(text="Try Again, you didn't select an option then submit again" )
               choice=self.con1.get() 
-            else:
-              if choice == self.qa_dictionary[qnum][6]: 
+          else:
+           if choice == self.qa_dictionary[qnum][6]: 
                 score+=1
                 scr_label.configure(text=score)
                 self.confirm_button.config(text="confirm")
                 self.questions_setup() 
   
-              else:
+           else:
                   score+=0
                   scr_label.configure(text="The correct answer was: " + self.qa_dictionary[qnum][5])
                   self.confirm_button.config(text="Confirmn")
