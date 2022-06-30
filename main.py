@@ -213,21 +213,21 @@ class Quiz:
 class End:
   def __init__(self):
     background_color="blue"
-    global opening
-    opening = Tk()
-    opening.title("Exit Box")
-    opening.geometry("700x600")
+    global window2
+    window2 = Tk()
+    window2.title("Exit Box")
+    window2.geometry("700x600")
 
-    self.end_frame=Frame (opening,width=700,height=600,bg=background_color)
+    self.end_frame=Frame (window2,width=700,height=600,bg=background_color)
     self.end_frame.grid(row=1)
 
-    self.end_heading=Label(opening,text='Nice try',font=('Tw Cen Mt',22,'bold'),bg=background_color)
+    self.end_heading=Label(window2,text='Nice try',font=('Tw Cen Mt',22,'bold'),bg=background_color)
     self.end_heading.place(x=260,y=50)
 
-    self.exit_button=Button (opening,text='Exit',width=10,bg="lightblue",font=('Tw Cen Mt',12,'bold'),command=self.close_end)
+    self.exit_button=Button (window2,text='Exit',width=10,bg="lightblue",font=('Tw Cen Mt',12,'bold'),command=self.close_end)
     self.exit_button.place(x=260,y=200)
 
-    self.listLabel=Label(opening,text="feel free to try again",font=('Tw Cen Mt',12,'bold'),width=40,bg=background_color)
+    self.listLabel=Label(window2,text="feel free to try again",font=('Tw Cen Mt',12,'bold'),width=40,bg=background_color)
     self.listLabel.place(x=100,y=100)
 
   def close_end(self):
@@ -235,7 +235,7 @@ class End:
        self.end_heading.destroy()
        self.exit_button.destroy()
        self.listLabel.destroy()
-       opening.destroy()
+       window2.destroy()
       
       
   
