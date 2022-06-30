@@ -129,6 +129,7 @@ class Quiz:
 
     randomiser()
 
+
     self.question_label=Label(window, text = self.qa_dictionary[qnum][0], font =( "Tw Cen MT","18","bold"))
     self.question_label.grid(row= 0, padx=10, pady=10)  
 
@@ -198,87 +199,46 @@ class Quiz:
                   scr_label.configure(text="The correct answer was: " + self.qa_dictionary[qnum][5])
                   self.confirm_button.config(text="Confirmn")
                   self.questions_setup()
-    
+
+
+
   def end_screen(self):
     window.destroy()
-    end_object=End()
-
-
-
-
-
+    name=names[0]
+    
+    open_end_object=End()
+    
+    
+  
 class End:
-  def _innit_(self):
-    background="OldLace"
-    self.end_box= Toplevel(window)
-    self.end_box.title("End Box")
+  def __init__(self):
+    background_color="grey"
+    global window
+    window = Tk()
+    window.title("Exit Box")
+    window.geometry("700x600")
 
-    self.end_frame = Frame (self.end_box,width=1000,height=1000,bg=background)
+    self.end_frame=Frame (self.endframe,width=700,height=600,bg=background_color)
     self.end_frame.grid(row=1)
 
-    end.heading = Label(self.end_frame,text='Well Done',font=('Tw Cen Mt',22,'bold'),bg=background)
-    end.heading.grid(row=0)
+    self.end_heading=Label(self.end_heading,text='Nice try',font=('Tw Cen Mt',22,'bold'),bg=background_color)
+    self.end_heading.place(x=260,y=50)
 
-    exit.__code__button=Button (self.end_frame,text='Exit',width=10,bg="indianRed1",font=('Tw Cen Mt',12,'bold'),command=self.close_end)
-    exit_button.grid(row=4)
+    self.exit_button=Button (self.exit_button,text='Exit',width=10,bg="red",font=('Tw Cen Mt',12,'bold'),command=self.close_end)
+    self.exit_button.place(x=260,y=200)
 
-    self.listLabel = Label(self.end_frame,text="1st Place Available",font=('Tw Cen MT'),width=40,bg=backround)
-    self.listLabel.grid(column=0,row=2)
-  
-  
+    self.listLabel=Label(self.listLabel,text="feel free to try again",font=('Tw Cen Mt',12,'bold'),width=40,bg=background_color)
+    self.listLabel.place(x=100,y=100)
+
   def close_end(self):
-    self.end_box.destroy()
-    window.withdraw()
-  
-class leaderBoard:
-    def _innit_(self, parent):
-
-     parent.geometry("500x600")
-     self.bg_img = image.open("blue.png")
-     self.bg_img = self.bg_img.resize(("500x600"),image.ANTIALIAS)
-     image = imageTk.PhotoImage(self.bg_img)
-     image_label.config(image=image)
-     image_label.image = image
-
-     self.name.label=Label(parent,text="name",height=3,width=15)
-     self.name.label.place(x=100,y=100)
-     self.score.label=Label(parent,text="score",height=3,width=15)
-     self.score.label.place(x=100,y=200)
+       self.end_frame.destroy()
+       self.end_heading.destroy()
+       self.exit_button.destroy()
+       self.listLabel.destroy()
+       window.withdraw()
       
-    def leaderboard_colection(self):
-     name=names_list[0]
-    file=open("leaderBoard.txt","a")
-    
-    if name== "rowel_erase":
-      file=open("leaderboard.txt","w")
-    else:
-      file.write(str(score))
-      file.write(" - ")
-      file.write(name+"\n")
-      file.close
+      
   
-    inputFile = open("leaderBoard.txt","r")
-    lineList = inputFile.readlines()
-    lineList.sort()
-    top=[]
-    top5=(lineList[-5:])
-    for line in top5:
-      point=line.split(" - ")
-      top.append((int(point[0]),point[1]))
-    file.close()
-    top.sort()
-    top.reverse()
-    return_string = ""
-    for i in range(len(top)):
-      return_string+="{} - {}\n".format(top[i][0],top[i][1])
-    print(return_string)
-  
-    end_object=End()
-    end_object.listLabel.config(text=return_string)
-
-
-
-    
 if __name__== "__main__":
     window = Tk()
     window.title("12CSC Quiz")
