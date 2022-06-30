@@ -224,7 +224,7 @@ class End:
     self.end_heading=Label(opening,text='Nice try',font=('Tw Cen Mt',22,'bold'),bg=background_color)
     self.end_heading.place(x=260,y=50)
 
-    self.exit_button=Button (opening,text='Exit',width=10,bg="red",font=('Tw Cen Mt',12,'bold'),command=self.close_end)
+    self.exit_button=Button (opening,text='Exit',width=10,bg="lightblue",font=('Tw Cen Mt',12,'bold'),command=self.close_end)
     self.exit_button.place(x=260,y=200)
 
     self.listLabel=Label(opening,text="feel free to try again",font=('Tw Cen Mt',12,'bold'),width=40,bg=background_color)
@@ -235,7 +235,7 @@ class End:
        self.end_heading.destroy()
        self.exit_button.destroy()
        self.listLabel.destroy()
-       opening.withdraw()
+       opening.destroy()
       
       
   
