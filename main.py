@@ -68,7 +68,7 @@ class quiz:
                 1,
                 ],
             2: [
-                'Which NBA player has won the most championships?',
+                'Which NBA player has won the most \n championships?',
                 'Michael Jordan',
                 'Bill Russel',
                 'Lebron James',
@@ -77,7 +77,7 @@ class quiz:
                 2,
                 ],
             3: [
-                'Which position in soccer is allowed to touch the ball?'
+                'Which position in soccer is allowed to touch the \n ball?'
                     ,
                 'Forward',
                 'Midfielder',
@@ -114,7 +114,7 @@ class quiz:
                 3,
                 ],
             7: [
-                'What is the record for red cards given in a soccer game?'
+                'What is the record for red cards given in a soccer \n game?'
                     ,
                 '36',
                 '18',
@@ -124,7 +124,7 @@ class quiz:
                 1,
                 ],
             8: [
-                'How many players are on court at one time during volleyball game?'
+                'How many players are on court at one time during \n volleyball game?'
                     ,
                 '12',
                 '14',
@@ -143,7 +143,7 @@ class quiz:
                 2,
                 ],
             10: [
-                'Which terms means you knocked down all of the pins in bowling?'
+                'Which terms means you knocked down all of \n the pins in bowling?'
                     ,
                 'Split',
                 'Set',
