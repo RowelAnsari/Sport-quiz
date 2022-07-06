@@ -15,9 +15,9 @@ asked = []
 score = 0
 
 
-# randomiser method
+# randomising question method
 
-def randomiser():
+def randomising_questions():
     global qnum  # the question number is the key in our dictionary qa_dictionary, we have 10 keys (10 quuestions)
     qnum = random.randint(1, 10)  # so that the order of questions i srandom every time
 
@@ -26,7 +26,7 @@ def randomiser():
     if qnum not in asked:  # asked is a list we declared, so to start of with any number will be added, then this statement checkeck if ti was ther before
         asked.append(qnum)
     elif qnum in asked:
-        randomiser()
+        randomising_questions()
 
 
 # component 1 quiz window
@@ -59,12 +59,12 @@ class quizwindow:
 
         self.continue_button = Button(window, text='Start Quiz',
                 font=('Helvetica', '13', 'bold'), bg='lightblue',
-                command=self.name_collection)
+                command=self.name_list)
         self.continue_button.place(x=500, y=200)
 
     # method in class to collect the name entered by user, destroy the widgets and create a quiz object
 
-    def name_collection(self):
+    def name_list(self):
         name = self.entry_box.get()
 
         # component 6 error handling
@@ -86,7 +86,7 @@ class quizwindow:
 
         # to make sure name entered is only letters not numbers
 
-            messagebox.showerror('test', 'name cant consist of symbols')
+            messagebox.showerror('Symbol error', 'name cant consist of symbols')
         else:
 
         # to make sure name entered is only letters not symbols
@@ -210,7 +210,7 @@ class quizquestions:
         self.quiz_frame = Frame(parent, bg=background_color, padx=40,
                                 pady=40)
 
-        randomiser()
+        randomising_questions()
 
         # question label
 
@@ -234,7 +234,7 @@ class quizquestions:
             variable=self.con1,
             pady=10,
             )
-        self.rb1.grid(row=1, sticky=W)
+        self.rb1.place(x=10,y=200)
 
         # radio buttons 2
 
@@ -247,7 +247,7 @@ class quizquestions:
             variable=self.con1,
             pady=10,
             )
-        self.rb2.grid(row=2, sticky=W)
+        self.rb2.place(row=2, sticky=W)
 
         # radio buttons 3
 
@@ -260,7 +260,7 @@ class quizquestions:
             variable=self.con1,
             pady=10,
             )
-        self.rb3.grid(row=3, sticky=W)
+        self.rb3.place(row=3, sticky=W)
 
         # radio buttons 4
 
@@ -273,30 +273,30 @@ class quizquestions:
             variable=self.con1,
             pady=10,
             )
-        self.rb4.grid(row=4, sticky=W)
+        self.rb4.place(row=4, sticky=W)
 
         # confirm button
 
         self.confirm_button = Button(window, text='Confrim', bg='white'
                 , command=self.quiz_score)
-        self.confirm_button.place(x=300, y=235)
+        self.confirm_button.place(x=300, y=268)
 
         # score label
 
         self.score_label = Label(window, text='score')
-        self.score_label.place(x=390, y=240)
+        self.score_label.place(x=322, y=300)
 
         # component 4 leave button
 
         self.leave = Button(window, text='Leave', font=('Helvetica',
                             '13', 'bold'), bg='lightblue',
-                            command=self.end_screen)
-        self.leave.place(x=50, y=235)
+                            command=self.exitbox)
+        self.leave.place(x=50, y=268)
 
     # configuring (editing) the question label to new questions and possible answers as new radio button choices
 
     def qa_setup(self):
-        randomiser()
+        randomising_questions()
         self.con1.set(0)
         self.question_label.config(text=self.qa_dictionary[qnum][0])
         self.rb1.config(text=self.qa_dictionary[qnum][1])
@@ -315,7 +315,7 @@ class quizquestions:
                 score += 1  # adds one point to score
                 score_label.configure(text=score)  # will change label to new score
                 self.confirm_button.config(text='Confirm')  # will change the text on the button to confirm
-                self.end_screen()  # to open end screen (end box) when quiz is done
+                self.exitbox()  # to open end screen (end box) when quiz is done
             else:
 
                 score += 0  # score will stay the same
@@ -327,7 +327,7 @@ class quizquestions:
              # if the length of the asked list is 9 or less, so quiz will have question to ask
 
             if choice == 0:  # if user does not select an option
-                self.confirm_button.config(text="Try Again, you didn't select an option then submit again"
+                self.confirm_button.config(text="Try Again, you didn't select an option"
                         )
 
                          # error message
@@ -354,7 +354,7 @@ class quizquestions:
 
     # method to end screen
 
-    def end_screen(self):
+    def exitbox(self):
         window.destroy()
         name = names[0]
 
@@ -394,7 +394,7 @@ class end:
             width=10,
             bg='lightblue',
             font=('Tw Cen Mt', 12, 'bold'),
-            command=self.close_end,
+            command=self.close_endbox,
             )
         self.exit_button.place(x=260, y=200)
 
@@ -405,7 +405,7 @@ class end:
                                 width=40, bg=background_color)
         self.list_label.place(x=110, y=100)
 
-    def close_end(self):
+    def close_endbox(self):
         self.end_frame.destroy()
         self.end_heading.destroy()
         self.exit_button.destroy()
